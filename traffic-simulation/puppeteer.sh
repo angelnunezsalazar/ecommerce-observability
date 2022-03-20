@@ -18,3 +18,4 @@ printf "\nInfinite Mobile Replay Starting.\n\n"
 while :
 do
   node puppeteer.js $STOREDOG_URL
+done
