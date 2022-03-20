@@ -1,4 +1,4 @@
 #! /bin/bash
 
 source .env
-docker-compose down && docker-compose up -d
+POSTGRES_USER=postgres POSTGRES_PASSWORD=postgres docker-compose down && docker-compose up -d
