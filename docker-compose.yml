@@ -94,3 +94,13 @@ services:
       - DD_ENV=development
     labels:
       com.datadoghq.ad.logs: '[{"source": "postgresql", "service": "postgres"}]'
+  puppeteer:
+    image: buildkite/puppeteer:10.0.0
+    volumes:
+      - ./traffic-simulation/puppeteer-mobile.js:/puppeteer.js
+      - ./traffic-simulation/puppeteer.sh:/puppeteer.sh
+    environment:
+      - STOREDOG_URL=http://frontend:3000
+    depends_on:
+      - frontend
+    command: bash puppeteer.sh
