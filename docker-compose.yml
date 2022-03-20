@@ -94,3 +94,8 @@ services:
       - DD_ENV=development
     labels:
       com.datadoghq.ad.logs: '[{"source": "postgresql", "service": "postgres"}]'
+  traffic-replay:
+    image: "ddtraining/traffic-replay:latest"
+    environment:
+      - FRONTEND_HOST
+      - FRONTEND_PORT
