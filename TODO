@@ -1,0 +1,6 @@
+- URL de la aplicación
+- arquitectura
+- ejecutar el replay
+
+
+POSTGRES_USER=postgres POSTGRES_PASSWORD=postgres docker-compose -f deploy/docker-compose/docker-compose-broken-instrumented.yml -f deploy/docker-compose/docker-compose-traffic-replay.yml up
