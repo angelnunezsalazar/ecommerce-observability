@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 
 const startUrl = process.env.STOREDOG_URL;
+console.log(`Start Url: ${startUrl}`);
 
 const choosePhone = () => {
   const deviceNames = [
@@ -53,7 +54,7 @@ const runSession = async (url, selectors) => {
 
   try {
     await page.setDefaultNavigationTimeout(
-      process.env.PUPPETEER_TIMEOUT || 20000
+      process.env.PUPPETEER_TIMEOUT || 15000
     );
     await page.emulate(choosePhone());
     await page.goto(url, { waitUntil: 'domcontentloaded' });
