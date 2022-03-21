@@ -1,0 +1,12 @@
+version: '3'
+services:
+  puppeteer:
+    image: buildkite/puppeteer:10.0.0
+    volumes:
+      - ./traffic-simulation/puppeteer-mobile.js:/puppeteer.js
+      - ./traffic-simulation/puppeteer.sh:/puppeteer.sh
+    environment:
+      - STOREDOG_URL=${STOREDOG_URL:-http://frontend:3000}
+    depends_on:
+      - frontend
+    command: bash puppeteer.sh

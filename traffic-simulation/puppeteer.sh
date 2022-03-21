@@ -19,3 +19,4 @@ while :
 do
   node puppeteer.js $STOREDOG_URL
 done
+
