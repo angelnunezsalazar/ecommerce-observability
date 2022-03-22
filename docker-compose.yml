@@ -35,7 +35,6 @@ services:
     volumes:
       - "./discounts-service/discounts.py:/app/discounts.py"
     depends_on:
-      - agent
       - db
     labels:
       com.datadoghq.ad.logs: '[{"source": "python", "service": "discounts-service"}]'
@@ -57,7 +56,6 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - agent
       - db
       - discounts
       - advertisements
@@ -81,7 +79,6 @@ services:
     volumes:
       - "./ads-service/ads.py:/app/ads.py"
     depends_on:
-      - agent
       - db
     labels:
       com.datadoghq.ad.logs: '[{"source": "python", "service": "ads-service"}]'
