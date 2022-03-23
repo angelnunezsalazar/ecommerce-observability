@@ -1,0 +1,38 @@
+diff --git store-frontend-broken-instrumented/app/views/spree/home/index.html.erb store-frontend-broken-instrumented/app/views/spree/home/index.html.erb
+index ae3ef43..4a0d972 100644
+--- store-frontend-broken-instrumented/app/views/spree/home/index.html.erb
++++ store-frontend-broken-instrumented/app/views/spree/home/index.html.erb
+@@ -9,6 +9,7 @@
+ <% end %>
+ 
+ <div data-hook="homepage_products">
++<br /><center><a href="<%= @ads['url'] %>"><img src="data:image/png;base64,<%= @ads['base64'] %>" /></a></center>
+   <% cache(cache_key_for_products) do %>
+     <%= render partial: 'spree/shared/products', locals: { products: @products } %>
+   <% end %>
+diff --git store-frontend-broken-instrumented/app/views/spree/layouts/spree_application.html.erb store-frontend-broken-instrumented/app/views/spree/layouts/spree_application.html.erb
+index 237b64c..8839730 100644
+--- store-frontend-broken-instrumented/app/views/spree/layouts/spree_application.html.erb
++++ store-frontend-broken-instrumented/app/views/spree/layouts/spree_application.html.erb
+@@ -35,8 +35,7 @@
+     <%= render partial: 'spree/shared/header' %>
+ 
+     <div class="container">
+-     <br /><center><a href="<%= @ads['url'] %>"><img src="data:image/png;base64,<%= @ads['base64'] %>" /></a></center>
+-      <div class="row" data-hook>
++     <div class="row" data-hook>
+         <%= spree_breadcrumbs(@taxon) %>
+ 
+         <%= render partial: 'spree/shared/sidebar' if content_for? :sidebar %>
+diff --git store-frontend-broken-instrumented/app/views/spree/products/show.html.erb store-frontend-broken-instrumented/app/views/spree/products/show.html.erb
+index af56a67..006b01b 100644
+--- store-frontend-broken-instrumented/app/views/spree/products/show.html.erb
++++ store-frontend-broken-instrumented/app/views/spree/products/show.html.erb
+@@ -45,3 +45,4 @@
+     </div>
+   </div>
+ <% end %>
++<br /><center><a href="<%= @ads['url'] %>"><img src="data:image/png;base64,<%= @ads['base64'] %>" /></a></center>
+-- 
+2.30.1
+
